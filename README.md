@@ -75,3 +75,22 @@ K_CITIES = ["Bangalore","Bhagepalli","Chikkaballpur","Gauribidanur","Kanakapur",
 		@city = params[:t_city] if params[:t_city].present?
 		@property.city= @city
 		---------------------------------------------------------------------------------------------------------------------
+    -------------------------------------------------------------------------
+    displaying gmap
+-------------------------
+    gem 'gmaps4rails'
+gem 'geocode'
+
+<script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry" type="text/javascript"></script>
+<script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
+  <%= yield :scripts %> 
+  
+rails g gmaps4rails:copy_js
+
+rails g gmaps4rails:copy_coffee
+copy underscope.js
+---------------------
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
