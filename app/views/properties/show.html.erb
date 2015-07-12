@@ -1,0 +1,103 @@
+<legend>Property</legend>
+
+
+
+<div class="page-wrapper">
+<p>
+  <strong>TypeofLand:</strong>
+  <%= @property.type_of_land.titleize %>
+</p>
+</div>
+
+<div class="page-wrapper">
+<p>
+  <strong>Title:</strong>
+  <%= @property.title.titleize %>
+</p>
+</div>
+
+<div class="page-wrapper">
+<p>
+  <strong>Price:</strong>
+  <%= @property.price %>
+</p>
+</div>
+
+<div class="page-wrapper">
+<p>
+  <strong>Rate:</strong>
+  <%= @property.rate %>
+</p>
+</div>
+
+<div class="page-wrapper">
+<p>
+  <strong>Area:</strong>
+  <%= @property.area %> 
+</p>
+</div>
+
+<div class="page-wrapper">
+<p>
+  <strong>PersonType:</strong>
+  <%= @property.person_type %>
+</p>
+</div>
+
+<div class="page-wrapper">
+<p>
+  <strong>City:</strong>
+  <%= @property.city.titleize %>
+</p>
+</div>
+
+<div class="page-wrapper">
+<p>
+  <strong>Location:</strong>
+  <%= @property.location %>
+</p>
+</div>
+
+<div class="page-wrapper">
+<p>
+  <strong>Description:</strong>
+  <%= @property.description.titleize %>
+</p>
+</div>
+
+<div class="page-wrapper">
+<p>
+  <strong>Name:</strong>
+  <%= @property.name.titleize  %>
+</p>
+</div>
+
+<div class="page-wrapper">
+<p>
+  <strong>Email:</strong>
+  <%= @property.email %>
+</p>
+</div>
+
+<div class="page-wrapper">
+<p>
+  <strong>Mobile:</strong>
+  <%= @property.mobile %>
+</p>
+</div>
+
+
+    
+   
+ <%=link_to "Download", @property.document.url, :class => 'btn-login btn-back', :style => 'float: right;' %>
+
+
+<% @property.images.each do |i| %>
+<%= image_tag i.image %>
+<%end%>
+
+
+
+
+
+<%= link_to "ViewAll", properties_path, :class => "btn btn-success"%>

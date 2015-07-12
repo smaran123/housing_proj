@@ -1,0 +1,65 @@
+<legend>Properties</legend>
+
+
+
+<div class="table-responsive">
+  <table class="table table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th> Typeoflland </th>
+        <th> Title </th>
+        <th> price </th>
+        <th> Rate </th>
+        <th> Area</th>
+        <th> PersonType</th>
+        <th> state </th>
+        <th> Location </th>
+        <th> Description </th>
+        <th> Name </th>
+        <th> Email </th>
+        <th> Mobile</th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @properties.each_with_index do |property, index| %>
+        <tr>
+          <td><%=  index + 1%></td>
+                  <td><%= property.type_of_land.titleize %></td>
+          <td><%= property.title.titleize %></td>
+          <td><%= property.price %></td>
+          <td><%= property.rate %></td>
+          <td><%= property.area %></td>
+          <td><%= property.person_type %></td>
+          <td><%= property.city.titleize %></td>
+          <td><%= property.location.titleize %></td>
+          <td><%= property.description.titleize %></td>
+          <td><%= property.name.titleize %></td>
+          <td><%= property.email %></td>
+          <td><%= property.mobile %></td>
+          <td>
+            <span>
+              <span>
+                <%= link_to "<i class='glyphicon glyphicon-list'></i>".html_safe,property_path(property),:class => "btn btn-xs btn-success" %> 
+              </span>
+
+                     <span>
+                 <%= link_to "<i class='glyphicon glyphicon-edit'></i>".html_safe, edit_property_path(property), :class => 'btn btn-xs btn-primary' %> 
+              </span>
+              <span>
+                <%= link_to "<i class='glyphicon glyphicon-trash'></i>".html_safe, property_path(property), :method => :delete, :data => {:confirm => "Are you sure"}, :class => "btn btn-xs btn-danger" %>
+              </span>
+              </span>
+                    </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+<%= link_to "AddNew", new_property_path, :class => "btn btn-default"%>

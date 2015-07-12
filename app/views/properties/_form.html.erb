@@ -1,0 +1,131 @@
+<%= nested_form_for @property do |f| %>
+<div class="row">
+
+<div class="col-md-6">
+
+<div class="form-field">
+<%= f.label :TypeOfLand%>
+<div class= "form-action">
+<%= f.text_field :type_of_land %>
+</div>
+</div>
+
+<div class="form-field">
+<%= f.label :title%>
+<div class= "form-action">
+<%= f.text_field :title %>
+</div>
+</div>
+
+<div class="form-field">
+<%= f.label :Price%>
+<div class= "form-action">
+<%= f.text_field :price %>
+</div>
+</div>
+
+<div class="form-field">
+<%= f.label :Rate%>
+<div class= "form-action">
+<%= f.text_field :rate %>
+</div>
+</div>
+
+<div class="form-field">
+<%= f.label :Area%>
+<div class= "form-action">
+<%= f.text_field :area %>
+</div>
+</div>
+
+<div class="form-field">
+<%= f.label :Person_type%>
+<div class= "form-action">
+<%= f.text_field :person_type %>
+</div>
+</div>
+
+
+<div class="form-field">
+<%= f.label :city%>
+<div class= "form-action">
+<%= f.text_field :city %>
+</div>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="form-field">
+<%= f.label :location%>
+<div class= "form-action">
+<%= f.text_field :location %>
+</div>
+</div>
+
+<div class="form-field">
+<%= f.label :description%>
+<div class= "form-action">
+<%= f.text_area :description %>
+</div>
+</div>
+
+<div class="form-field">
+<%= f.label :name%>
+<div class= "form-action">
+<%= f.text_field :name %>
+</div>
+</div>
+
+<div class="form-field">
+<%= f.label :email%>
+<div class= "form-action">
+<%= f.text_field :email %>
+</div>
+</div>
+
+<div class="form-field">
+<%= f.label :mobile%>
+<div class= "form-action">
+<%= f.text_field :mobile %>
+</div>
+</div>
+
+
+<div class="form-field">
+<%= f.label :Document%>
+<div class= "form-action">
+<%= f.file_field :document %>
+</div>
+</div>
+
+
+<div class="control-group">
+    <div class="control-group">
+      <label class="control-label" for="address">
+        Upload images
+      </label>
+      <div class="controls">
+        <%= f.fields_for :images do |image| %>
+          <%= image.file_field :image %>
+          <%= image.link_to_remove image_tag("remove.png") %>
+        <% end %>
+      </div>
+    </div>
+    <div class="controls">
+      <%= f.link_to_add image_tag("add.jpg"), :images %>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+</div>
+
+<div class="action">
+<%= f.submit %>
+	
+</div>
+<%end%>

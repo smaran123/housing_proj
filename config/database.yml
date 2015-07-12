@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: root
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: housing_proj_development
+
+
+test:
+  <<: *default
+  database: housing_proj_test
+
+production:
+  <<: *default
+  database: housing_proj_production
+  username: housing_proj
+  password: <%= ENV['HOUSING_PROJ_DATABASE_PASSWORD'] %>
