@@ -4,6 +4,6 @@ has_many :images, :dependent => :destroy
 	has_attached_file :document
 	validates_attachment_content_type :document, :content_type => ["application/msword","text/plain",'application/pdf'], :message => 'Only PDF, WORD or TEXT files are allowed. '
   #validates_attachment_presence :document
-
+validates :location, :description, :state,:city,:email, :presence => true
 
 end

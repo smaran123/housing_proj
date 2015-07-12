@@ -1,131 +1,191 @@
 <%= nested_form_for @property do |f| %>
+ <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @property.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <div class="row">
 
-<div class="col-md-6">
+  <div class="col-md-6">
 
-<div class="form-field">
-<%= f.label :TypeOfLand%>
-<div class= "form-action">
-<%= f.text_field :type_of_land %>
-</div>
-</div>
+    <div class="form-field">
+      <%= f.label :TypeOfLand%>
+      <div class= "form-action">
 
-<div class="form-field">
-<%= f.label :title%>
-<div class= "form-action">
-<%= f.text_field :title %>
-</div>
-</div>
+        <%= f.select :type_of_land, options_for_select([["Select" ,""],["Agricultural","Agricultural"],["Residential","Residential"],["Industrial","Industrial"],["Commercial","Commercial"],["FarmLand","FarmLand"],["BarrenLand","BarrenLand"]], @property.type_of_land), :class => 'dropdownvisible'  %>
 
-<div class="form-field">
-<%= f.label :Price%>
-<div class= "form-action">
-<%= f.text_field :price %>
-</div>
-</div>
-
-<div class="form-field">
-<%= f.label :Rate%>
-<div class= "form-action">
-<%= f.text_field :rate %>
-</div>
-</div>
-
-<div class="form-field">
-<%= f.label :Area%>
-<div class= "form-action">
-<%= f.text_field :area %>
-</div>
-</div>
-
-<div class="form-field">
-<%= f.label :Person_type%>
-<div class= "form-action">
-<%= f.text_field :person_type %>
-</div>
-</div>
-
-
-<div class="form-field">
-<%= f.label :city%>
-<div class= "form-action">
-<%= f.text_field :city %>
-</div>
-</div>
-</div>
-
-<div class="col-md-6">
-<div class="form-field">
-<%= f.label :location%>
-<div class= "form-action">
-<%= f.text_field :location %>
-</div>
-</div>
-
-<div class="form-field">
-<%= f.label :description%>
-<div class= "form-action">
-<%= f.text_area :description %>
-</div>
-</div>
-
-<div class="form-field">
-<%= f.label :name%>
-<div class= "form-action">
-<%= f.text_field :name %>
-</div>
-</div>
-
-<div class="form-field">
-<%= f.label :email%>
-<div class= "form-action">
-<%= f.text_field :email %>
-</div>
-</div>
-
-<div class="form-field">
-<%= f.label :mobile%>
-<div class= "form-action">
-<%= f.text_field :mobile %>
-</div>
-</div>
-
-
-<div class="form-field">
-<%= f.label :Document%>
-<div class= "form-action">
-<%= f.file_field :document %>
-</div>
-</div>
-
-
-<div class="control-group">
-    <div class="control-group">
-      <label class="control-label" for="address">
-        Upload images
-      </label>
-      <div class="controls">
-        <%= f.fields_for :images do |image| %>
-          <%= image.file_field :image %>
-          <%= image.link_to_remove image_tag("remove.png") %>
-        <% end %>
       </div>
     </div>
-    <div class="controls">
-      <%= f.link_to_add image_tag("add.jpg"), :images %>
+    <div class="form-field">
+      <%= f.label :title%>
+      <div class= "form-action">
+        <%= f.text_field :title %>
+      </div>
     </div>
+
+    <div class="form-field">
+      <%= f.label :Price%>
+      <div class= "form-action">
+        <%= f.text_field :price %>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <%= f.label :Rate%>
+      <div class= "form-action">
+        <%= f.text_field :rate %>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <%= f.label :Area%>
+      <div class= "form-action">
+        <%= f.text_field :area %>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <%= f.label :Person_type%>
+      <div class= "form-action">
+        <%= f.text_field :person_type %>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <%= f.label :State%>
+      <div class= "form-action">
+        <%= f.select :state, options_for_select([ ["Select",""], ["Andhrapradesh","Andhrapradesh"], ["Tamilnadu","Tamilnadu"], ["Karnataka","Karnataka"]], :selected => f.object.state)  %>
+      </div>
+    </div>
+
+
+  <div class="control-group kcity">
+   <%= f.label :city, :class => 'control-label' %>
+ <div class="controls">
+   <%= select_tag :k_city, options_for_select([["Select City", ""]] + K_CITIES.map {|kcity| kcity}) %>
+ </div>
+</div>
+
+<div class="control-group acity">
+    <%= f.label :city, :class => 'control-label' %>
+ <div class="controls">
+   <%= select_tag :a_city, options_for_select([["Select City", ""]] + A_CITIES.map {|kcity| kcity}) %>
+ </div>
+</div>
+
+<div class="control-group tcity">
+   <%= f.label :city, :class => 'control-label' %>
+ <div class="controls">
+   <%= select_tag :t_city, options_for_select([["Select City", ""]] + T_CITIES.map {|kcity| kcity}) %>
+ </div>
+</div>
+
+  </div>
+
+  <div class="col-md-6">
+    <div class="form-field">
+      <%= f.label :location%>
+      <div class= "form-action">
+        <%= f.text_field :location %>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <%= f.label :description%>
+      <div class= "form-action">
+        <%= f.text_area :description %>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <%= f.label :name%>
+      <div class= "form-action">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <%= f.label :email%>
+      <div class= "form-action">
+        <%= f.text_field :email %>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <%= f.label :mobile%>
+      <div class= "form-action">
+        <%= f.text_field :mobile %>
+      </div>
+    </div>
+
+
+    <div class="form-field">
+      <%= f.label :Document%>
+      <div class= "form-action">
+        <%= f.file_field :document %>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <div class="control-group">
+        <label class="control-label" for="address">
+          Upload images
+        </label>
+        <div class="controls">
+          <%= f.fields_for :images do |image| %>
+          <%= image.file_field :image %>
+          <%= image.link_to_remove image_tag("remove.png") %>
+          <% end %>
+        </div>
+      </div>
+      <div class="controls">
+        <%= f.link_to_add image_tag("add.jpg"), :images %>
+      </div>
+    </div>
+
+
+
   </div>
 
 
 
 </div>
 
-
-
-</div>
-
 <div class="action">
-<%= f.submit %>
-	
+  <%= f.submit %>
+
 </div>
 <%end%>
+
+
+<script>
+$(document).ready(function() {
+    $(".kcity").hide();
+    $(".acity").hide();
+    $(".tcity").hide();
+  });
+
+$("#property_state").change(function() {
+    var val = $("#property_state").val();
+    if (val == 'Andhrapradesh') {
+      $(".kcity").hide();
+      $(".acity").show();
+      $(".tcity").hide();
+    } else if (val == 'Karnataka') {
+      $(".kcity").show();
+      $(".acity").hide();
+      $(".tcity").hide();
+    } else if (val == 'Tamilnadu') {
+     $(".kcity").hide();
+     $(".acity").hide();
+     $(".tcity").show();
+   }
+ });
+
+
+</script>
