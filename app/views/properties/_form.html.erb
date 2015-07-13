@@ -34,26 +34,20 @@
       </div>
     </div>
 
-    <div class="form-field">
-      <%= f.label :Rate%>
-      <div class= "form-action">
-        <%= f.text_field :rate %>
-      </div>
-    </div>
+    
 
     <div class="form-field">
       <%= f.label :Area%>
       <div class= "form-action">
         <%= f.text_field :area %>
+        
+        <%= f.select :unit,options_for_select([["Select" ,""],["Acres","Acres"],["Sqfts","Sqfts"]], @property.unit)   %>
+
       </div>
+
     </div>
 
-    <div class="form-field">
-      <%= f.label :Person_type%>
-      <div class= "form-action">
-        <%= f.text_field :person_type %>
-      </div>
-    </div>
+
 
     <div class="form-field">
       <%= f.label :State%>
