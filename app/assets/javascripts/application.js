@@ -15,6 +15,7 @@
 //= require gritter
 //= require bootstrap-sprockets
 //= require jquery_nested_form
+//= require underscore
+//= require gmaps/google
 //= require turbolinks
 //= require_tree .
-

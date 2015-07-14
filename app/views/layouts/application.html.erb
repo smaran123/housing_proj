@@ -10,8 +10,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if admin_signed_in?%>
+<%= link_to "Signout", destroy_admin_session_path, :method => :delete %>
+<% else %>
+<%= link_to "SignIn", new_admin_session_path %>
+<%= link_to "SignUp", new_admin_registration_path %>
+<% end %>
+  <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
+
 
 <%= yield %>
-  <%= yield :scripts %> 
+  <%= yield :scripts %>
 </body>
 </html>

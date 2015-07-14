@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   get 'contactus/new'
 resources :contactus
 get "list_property", to: "home#list_property"

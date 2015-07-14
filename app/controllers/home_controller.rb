@@ -17,7 +17,7 @@ class HomeController < ApplicationController
        elsif params[:price] == "lsdc"
          @properties = Property.where(:city => params[:city]).order("location desc")
        else
-        @properties = Property.where(:city => params[:city]).order("price")
+        @properties = Property.where(:city => params[:city]).order(:price)
      end
      # @properties = Property.where(:city => params[:city])
      @city = params[:city]
