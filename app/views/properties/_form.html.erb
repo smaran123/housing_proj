@@ -105,14 +105,14 @@
     <div class="form-field">
       <%= f.label :email%>
       <div class= "form-action">
-        <%= f.text_field :email %>
+        <%= f.email_field :email %>
       </div>
     </div>
 
     <div class="form-field">
       <%= f.label :mobile%>
       <div class= "form-action">
-        <%= f.text_field :mobile %>
+        <%= f.text_field :mobile, :id => "txtphone" %>
       </div>
     </div>
 
@@ -180,6 +180,9 @@ $("#property_state").change(function() {
      $(".tcity").show();
    }
  });
+  $(document).ready(function() {
+    $('#txtphone').mask('(000) 000-0000');
+  });
 
 
 </script>
