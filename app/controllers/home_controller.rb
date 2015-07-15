@@ -7,18 +7,18 @@ class HomeController < ApplicationController
  end
 
  def land
-    if params[:price] == "low"
-        @properties = Property.where(:city => params[:city]).order("price asc")
+  if params[:price] == "low"
+    @properties = Property.where(:city => params[:city]).order("price asc")
 
-        elsif params[:price] == "high"
-         @properties = Property.where(:city => params[:city]).order("price desc")
-       elsif params[:price] == "lasc"
-         @properties = Property.where(:city => params[:city]).order("location asc")
-       elsif params[:price] == "lsdc"
-         @properties = Property.where(:city => params[:city]).order("location desc")
-       else
-        @properties = Property.where(:city => params[:city]).order(:price)
-     end
+  elsif params[:price] == "high"
+   @properties = Property.where(:city => params[:city]).order("price desc")
+ elsif params[:price] == "lasc"
+   @properties = Property.where(:city => params[:city]).order("location asc")
+ elsif params[:price] == "lsdc"
+   @properties = Property.where(:city => params[:city]).order("location desc")
+ else
+  @properties = Property.where(:city => params[:city]).order(:price)
+end
      # @properties = Property.where(:city => params[:city])
      @city = params[:city]
     #    @json = @properties.to_gmaps4rails
@@ -31,15 +31,18 @@ class HomeController < ApplicationController
 
 
   def land1
-      @property = Property.find(params[:id])
+    @property = Property.find(params[:id])
     @properties = Property.where(:city => @property.city)
   end
 
   def gallery
-
+    @property = Property.find(params[:id])
+    @images = Image.where(:property_id =>@property.id)
   end
 
   def image_slide
+    @property = Property.find(params[:id])
+    @images = Image.where(:property_id =>@property.id)
   end
 
   def help

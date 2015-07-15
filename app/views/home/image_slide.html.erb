@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <br/>
+      <ul class="bxslider">
+        <% @images.each do |image| %>
+        <li><%= image_tag(image.image.url(:original), :height => "300", :width =>"500")  %></li>
+        <% end %>
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+<br/><br/>
+<br/>
+<br/>
+
+<script>
+  $(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+</script>

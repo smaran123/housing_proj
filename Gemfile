@@ -36,3 +36,4 @@ gem "devise-encryptable"
 gem 'gmaps4rails', '~> 2.1.2'
 gem 'geocoder'
 
+gem 'bxslider-rails'
