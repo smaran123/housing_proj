@@ -1,0 +1,32 @@
+
+<header>
+  <div class="topbar">     
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="glyphicon glyphicon-align-justify"></span></button>
+    </div>
+    <div class="navbar-collapse collapse">              
+   
+            <ul id="navigation">
+            
+                <li><%= link_to "HOME",  root_path,:class => 'btn-login' %></li>
+      <% if current_user %>
+          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn-login' %></li>
+        <% else %>
+          <li><%= link_to "LOGIN", new_user_session_path,:class => 'btn-login' %></li>
+          <li><%= link_to "SIGN UP", new_user_registration_path,:class =>'btn-login' %> </li>
+        <% end %>
+
+<!--<!--% if admin_signed_in?%-->
+<li><%#= link_to "Signout", destroy_admin_session_path, :method => :delete,:class => 'btn-login' %></li>
+<!--% else %-->
+<li><%#= link_to "SignIn", new_admin_session_path,:class => 'btn-login' %></li>
+<li><%#= link_to "SignUp", new_admin_registration_path,:class => 'btn-login' %></li>
+<!--% end %-->
+
+
+
+      </ul>  
+    </div>                  
+    <div class="clearF"></div>
+  </div> 
+</header>

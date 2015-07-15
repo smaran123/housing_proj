@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admins
+  devise_for :users
+   #devise_for :users,:controllers => {:registrations => 'users'}
   get 'contactus/new'
 resources :contactus
 get "list_property", to: "home#list_property"
@@ -21,3 +23,6 @@ get "privacy_policy", to: "home#privacy_policy"
  resources :properties
 root "home#main_home"
 end
+ 
+
+ 

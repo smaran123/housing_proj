@@ -11,17 +11,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if admin_signed_in?%>
-<%= link_to "Signout", destroy_admin_session_path, :method => :delete %>
-<% else %>
-<%= link_to "SignIn", new_admin_session_path %>
-<%= link_to "SignUp", new_admin_registration_path %>
-<% end %>
+
+ <meta charset="utf-8">
+    <title>jQuery UI Dialog - Default functionality</title>
+    <link rel="stylesheet" href="/resources/demos/style.css"><% unless request.fullpath == "/admins/sign_in"  %>
+
+    <%end%>
+    <%= render :partial => '/layouts/header' %>
+
+
+<%#= render "layouts/header" %>
+
   <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
 
-
 <%= yield %>
   <%= yield :scripts %>
+  <%= render "layouts/footer" %>
+
 </body>
 </html>
