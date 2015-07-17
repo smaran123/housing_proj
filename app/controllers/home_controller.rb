@@ -50,4 +50,15 @@ end
 
   def about
   end
+
+  def requirement
+    if request.post?
+     # Contact.send_contact(params[:selectreq],params[:selectcity], params[:username], params[:email], params[:usrtel], params[:req]).deliver
+     RequirementMailer.send_requirement(params[:selectreq],params[:selectcity], params[:username], params[:email], params[:usrtel], params[:req]).deliver
+     flash[:notice] = "your Requirement has been successfuly submited"
+     redirect_to '/'
+   else
+    render :partial => "requirement"
+  end
+end
 end

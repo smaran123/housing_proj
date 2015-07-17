@@ -78,7 +78,6 @@
                     <a href="#" class="property-select"  onclick="javascript: signup();">Post Requirements</a>
                   </span>
                 </span>
-
                 <span class="project-type">
                   <span class="text-label">
                     <a href="/list_property" class="property-select">List Property</a>
@@ -122,9 +121,42 @@
 </div>
 </div>
 
+  <div id='overlay' style='filter:alpha(opacity=50);' onclick="hide_popup();"></div>
+  <div align='center' id='popup_box'>
+    <div style='float: right; margin-top: -40px;margin-right:-40px'></div>
+    <div id='popup_body' style='float:right'></div>
+  </div>
 
 <style>
 .fb-btn-big img{ width:60px; height: 60px; text-align:left;}
+
+
+    .overlay1{
+      display: none;
+      background-color: #000000;
+      height:500px;
+      left:0;
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index: 1000;
+      width: 100000px;
+      height: 941px;
+      opacity: 1.0;
+    }
+    #popup_box{
+      display:none;
+      height:auto;
+      width: 450px;
+      left:34%;
+      margin: -220px 0 0 -250px;
+      padding:15px;
+      position:fixed;
+      top:5%;
+      z-index:2000;
+      font-size: 15px;
+    }
+
   .topbar {
     background: linear-gradient(to bottom, #2a9e61 0%, #3aba82 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
     border-bottom: 1px solid #cbcbcb;
